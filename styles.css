@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body, html {
   height: 100%;
   display: flex;
@@ -15,10 +21,10 @@ body, html {
 .square {
   width: 30px;
   height: 30px;
-  background-color: #000;
+  background-color: #1d1d1d;  /* Default color for reset, equivalent to rgb(29, 29, 29) */
   transition: background-color 1s ease; /* Smooth transition for color change */
 }
 
 .square:hover {
-  background-color: #3498db; /* Change this to any color you prefer */
+  background-color: #3498db; /* Hover color, adjust as needed */
 }
