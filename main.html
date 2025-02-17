@@ -25,10 +25,10 @@
     }
 
     .square {
-      background-color: rgb(29, 29, 29);
+      background-color: rgb(29, 29, 29); /* Initial background color */
       width: 100%;
       height: 100%;
-      transition: background-color 1s ease;
+      transition: background-color 1s ease; /* Smooth transition for background color */
     }
 
     .square:hover {
@@ -44,7 +44,6 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      // Dynamically creating the 800 square divs inside the container
       const container = document.querySelector('.container');
       for (let i = 0; i < 800; i++) {
         const square = document.createElement('div');
