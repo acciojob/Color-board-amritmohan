@@ -16,11 +16,8 @@
         .square {
             width: 20px;
             height: 20px;
-            background-color: lightgray;
+            background-color: rgb(29, 29, 29); 
             transition: background-color 1s ease;
-        }
-        .square:hover {
-            background-color: randomColor();
         }
     </style>
 </head>
@@ -42,12 +39,15 @@
         for (let i = 0; i < 800; i++) {
             const square = document.createElement("div");
             square.classList.add("square");
+            
             square.addEventListener("mouseover", () => {
-                square.style.backgroundColor = randomColor();
+                let newColor = randomColor();
+                square.style.backgroundColor = newColor;
                 setTimeout(() => {
-                    square.style.backgroundColor = "lightgray";
+                    square.style.backgroundColor = "rgb(29, 29, 29)"; // Revert to expected initial color
                 }, 1000);
             });
+            
             container.appendChild(square);
         }
     </script>
