@@ -1,13 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Color Board</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Board</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: repeat(40, 20px);
+            grid-template-rows: repeat(20, 20px);
+            gap: 2px;
+            width: 820px;
+            margin: auto;
+        }
+        .square {
+            width: 20px;
+            height: 20px;
+            background-color: lightgray;
+            transition: background-color 1s ease;
+        }
+        .square:hover {
+            background-color: randomColor();
+        }
+    </style>
 </head>
 <body>
-  <div class="container"></div>
-  <script src="script.js"></script>
+    <div class="container" id="color-board"></div>
+
+    <script>
+        const container = document.getElementById("color-board");
+        
+        function randomColor() {
+            const letters = "0123456789ABCDEF";
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+        
+        for (let i = 0; i < 800; i++) {
+            const square = document.createElement("div");
+            square.classList.add("square");
+            square.addEventListener("mouseover", () => {
+                square.style.backgroundColor = randomColor();
+                setTimeout(() => {
+                    square.style.backgroundColor = "lightgray";
+                }, 1000);
+            });
+            container.appendChild(square);
+        }
+    </script>
 </body>
 </html>
